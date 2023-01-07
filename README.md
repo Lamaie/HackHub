@@ -15,19 +15,10 @@ HackHub is a web panel for Kali Linux that allows users to easily run tools, vie
 `git clone https://github.com/lamaie/hackhub.git`
 3. Navigate to the project directory:
 `cd hackhub`
-4. Install the required packages:
-`python3 -m pip install -r requirements.txt`
-5. Run the app:
+4. Run the app:
 `python3 HackHub.py`
-6. Open your web browser and go to http://localhost:5000/.
+5. Open your web browser and go to http://localhost:5000/.
 
 ## Contributing
 
 We welcome contributions to HackHub! If you have an idea for a new feature or find a bug, please open an issue or submit a pull request.
-
-## License
-
-HackHub is released under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-
-
