@@ -16,7 +16,7 @@ HackHub is a web panel for Kali Linux that allows users to easily run tools, vie
 3. Navigate to the project directory:
 `cd hackhub`
 4. Run the app:
-`python3 HackHub.py`
+`python3 hackhub.py`
 5. Open your web browser and go to http://localhost:5000/.
 
 ## Contributing
