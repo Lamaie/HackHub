@@ -57,8 +57,17 @@ def check_dependencies(verbose):
       missing.append(dependency)
   if missing:
     print(f'\033[31mError: The following dependencies are missing: {", ".join(missing)}\033[0m')
-    print('Please install them and run the script again')
-    sys.exit(1)
+    if 'python3-pip' in missing:
+      try:
+        subprocess.run(['pip3', '--version'], check=True)
+      except subprocess.CalledProcessError:
+        pass
+      else:
+        print('\033[33mWarning: `pip3` is installed but the `which` command could not find it. You may need to update your PATH environment variable.\033[0m')
+        missing.remove('python3-pip')
+    if missing:
+      if input('\033[33mDo you want to continue running the script without these dependencies (Y/n)?\033[0m ').lower() == 'n':
+        sys.exit(1)
 
 def download_requirements(verbose):
   if verbose:
@@ -85,7 +94,6 @@ def run_server(verbose):
 def serve_frontend(verbose):
   if verbose:
     print('\033[36mServing frontend...\033[0m')
-  os.chdir('frontend')
   try:
     subprocess.run(['python3', '-m', 'http.server', '5000'], check=True)
   except subprocess.CalledProcessError:
